@@ -1,0 +1,185 @@
+//@import '../../Utils/other.scss';
+$test-border: 1px solid red;
+$bg-img: url(../../assets/img/background.jpg) no-repeat center top/cover;
+$second-color: rgba(255, 255, 255, 0.9);
+
+.login-block {
+  height: 100vh;
+  display: flex;
+  justify-content: space-between;
+
+  .login-block__left {
+    width: 40%;
+    background: $bg-img;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .login-block__left-blur {
+      width: 80%;
+      height: 80%;
+      background-color: rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(20px) saturate(110%) brightness(100%);
+      -webkit-backdrop-filter: blur(20px) saturate(110%) brightness(100%);
+      border-radius: 25px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .login-block__left-inner {
+        width: 70%;
+        height: 80%;
+        display: flex;
+        flex-direction: column;
+
+        .login-block__signIn-form {
+          margin-top: 30px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          height: 60%;
+
+          .input-login {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.8);
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            border-radius: 8px;
+            transition: 0.2s linear;
+
+            .input-icon {
+              padding-left: 15px;
+              color: rgba(0, 0, 0, 0.3);
+              font-size: 1.1em;
+            }
+          }
+
+          .input-login:not(:first-child) {
+            margin-top: 16px;
+          }
+
+          .input-login input {
+            width: 100%;
+            border: none;
+            background-color: transparent;
+            text-indent: 10px;
+            padding: 15px 0;
+            font-size: 1em;
+          }
+
+          .input-login:focus-within {
+            border: 2px solid rgba(0, 0, 0, 0.7);
+            box-shadow: 0 0 12px -2px rgb(34 60 80 / 30%);
+            transition: 0.2s linear;
+          }
+        }
+
+        .login-block__signIn-form__login-options {
+          display: flex;
+          margin: 0 auto;
+          justify-content: space-between;
+          align-items: center;
+          margin-top: 25px;
+          width: 98%;
+
+          .login-options__remember-me {
+            display: flex;
+            align-items: center;
+
+            .login-options__remember-me__text {
+              padding-left: 10px;
+            }
+          }
+
+          .login-options__forget-pass a {
+            transition: 0.2s linear;
+          }
+
+          .login-options__forget-pass a:hover {
+            color: rgb(134, 178, 207);
+            transition: 0.2s linear;
+          }
+        }
+
+        .login-block__submit-btn {
+          cursor: pointer;
+          width: 100%;
+          padding: 22px 0;
+          border-radius: 15px;
+          margin-top: 60px;
+          background-color: #16425a;
+          font-size: 1em;
+          color: rgba(255, 255, 255, 0.85);
+          border: none;
+          transition: 0.2s linear;
+        }
+
+        .reg-btn {
+          margin-top: 50px;
+        }
+
+        .login-block__submit-btn:hover {
+          background-color: #062638;
+          transition: 0.2s linear;
+          transform: scale(1.02);
+        }
+
+        .login-block__submit-btn:active {
+          transition: 0.2s linear;
+          transform: scale(0.99);
+        }
+
+        .login-block__not-account {
+          display: flex;
+          justify-content: center;
+          margin-top: 40px;
+          color: rgba(255, 255, 255, 0.6);
+
+          a {
+            text-decoration: underline;
+            padding-left: 5px;
+            transition: 0.2s linear;
+          }
+
+          a:hover {
+            color: rgb(116, 172, 225);
+            transition: 0.2s linear;
+          }
+        }
+
+        .not-account__reg {
+          margin-top: 90px;
+        }
+      }
+
+      h2 {
+        color: $second-color;
+        margin-bottom: 5px;
+      }
+
+      .login-block__left-subText {
+        color: rgba(255, 255, 255, 0.6);
+      }
+    }
+
+    .registration-block {
+      width: 80%;
+      height: 90%;
+    }
+
+    @-moz-document url-prefix() {
+      .login-block__left-blur {
+        background-color: rgba(0, 0, 0, 0.5);
+      }
+
+      .login-options__remember-me__text {
+        color: rgba(255, 255, 255, 0.8);
+      }
+    }
+  }
+
+  .login-block__right {
+    width: 60%;
+  }
+}

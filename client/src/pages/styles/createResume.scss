@@ -1,0 +1,645 @@
+@mixin boxShadow($property) {
+  -webkit-box-shadow: $property;
+  -moz-box-shadow: $property;
+  box-shadow: $property;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+.add-resume__form__left-part::-webkit-scrollbar-track,
+.add-resume__form__left-part::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+}
+
+::-webkit-input-placeholder {
+  color: black; /*Change the placeholder color*/
+  opacity: 0.5; /*Change the opacity between 0 and 1*/
+}
+
+/* Переменные */
+$img-params: no-repeat center top / cover;
+
+%select-buttons {
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  transition: 0.2s linear;
+  color: #187fab;
+  font-weight: bold;
+  background-color: #fff;
+  @include boxShadow(0px 1px 8px 0px #1091db62);
+}
+
+.add-resume {
+  padding: 0 50px;
+  padding-bottom: 35px;
+  background: url(../../assets/img/resume-bg.jpg) $img-params;
+  background-color: rgba(0, 0, 0, 0.1);
+
+  h1 {
+    padding-top: 35px;
+  }
+}
+
+.add-resume input:not(input[type='checkbox']):not(input[type='radio']),
+.add-resume textarea {
+  width: 55%;
+  padding: 8px 0;
+  border-radius: 5px;
+  text-indent: 8px;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  font-size: 1em;
+  transition: 0.2s linear;
+  @include boxShadow(0px 1px 8px 0px #1091db62);
+}
+
+.add-resume input:focus:not(input[type='checkbox']):not(input[type='radio']) {
+  border: 2px solid rgba(19, 64, 110, 0.7);
+  box-shadow: 0 0 12px -2px rgba(138, 27, 111, 0.3);
+  transition: 0.2s linear;
+}
+
+.add-resume label {
+  color: rgba(0, 0, 0, 0.85);
+}
+
+.add-resume__form-subTitle {
+  font-size: 1.2em;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.75);
+}
+
+.add-resume__form {
+  display: flex;
+  height: 100vh;
+  margin-top: 35px;
+  padding: 30px 35px;
+  background-color: #fff;
+  border-radius: 10px;
+}
+
+/* AddResume component styles */
+.add-resume__form__left-part {
+  width: 50%;
+  height: 100%;
+  overflow-y: scroll;
+  .form__left-part__contacts {
+    height: 45%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    .form__left-part__contacts__inputs {
+      margin-top: 30px;
+      width: 80%;
+      height: 65%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      .form__left-part__contacts__inputs-group {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .inputs-group__input {
+          width: 55%;
+        }
+
+        label {
+          width: 40%;
+        }
+
+        input {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  .form__left-part__main-info {
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    .form__left-part__main-info__inputs {
+      margin-top: 30px;
+      width: 80%;
+      height: 65%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      .form__left-part__main-info__inputs-group {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        label {
+          width: 40%;
+        }
+
+        input {
+          width: 100%;
+        }
+
+        .date-birthday__block,
+        .sex-group,
+        .citizenship,
+        .is-experience-block {
+          width: 55%;
+        }
+
+        .date-birthday__block {
+          display: flex;
+          justify-content: space-between;
+        }
+
+        %date-inputs {
+          text-indent: 0;
+          text-align: center;
+        }
+
+        .day {
+          width: 15%;
+          @extend %date-inputs;
+        }
+
+        .month {
+          width: 35%;
+          @extend %date-inputs;
+        }
+
+        .year {
+          width: 30%;
+          @extend %date-inputs;
+        }
+
+        %checked-state {
+          transition: 0.2s linear;
+          background-color: #052435;
+          color: #fff;
+        }
+
+        .sex-group {
+          .male-radio,
+          .female-radio {
+            @extend %select-buttons;
+          }
+
+          .male-radio:hover,
+          .female-radio:hover {
+            transition: 0.2s linear;
+            border: 2px solid rgba(0, 0, 0, 0.7);
+            transform: scale(1.1);
+          }
+
+          .female-radio {
+            margin-left: 15px;
+          }
+
+          .sex-checked {
+            @extend %checked-state;
+          }
+        }
+
+        .is-experience-block {
+          .yes-experience,
+          .no-experience {
+            @extend %select-buttons;
+            width: 35%;
+          }
+
+          .yes-experience:hover,
+          .no-experience:hover {
+            transition: 0.2s linear;
+            border: 2px solid rgba(0, 0, 0, 0.7);
+            transform: scale(1.1);
+          }
+
+          .no-experience {
+            margin-left: 15px;
+          }
+
+          .experience-checked {
+            @extend %checked-state;
+          }
+        }
+      }
+    }
+  }
+
+  .form__left-part__education {
+    height: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    .form__left-part__education__inputs {
+      margin-top: 30px;
+      width: 80%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      .form__left-part__education__inputs-group {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .inputs-group__input {
+          width: 55%;
+        }
+
+        label {
+          width: 40%;
+        }
+
+        input {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  .form__left-part__languages {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    .form__left-part__languages__inputs {
+      margin-top: 30px;
+      width: 80%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      .other-langs__block,
+      .add-lang__btn {
+        margin-top: 20px;
+      }
+
+      .add-lang__btn {
+        width: 40%;
+        @extend %select-buttons;
+        transition: 0.2s linear;
+      }
+
+      .add-lang__btn:hover {
+        transition: 0.2s linear;
+        border: 2px solid rgba(0, 0, 0, 0.7);
+        transform: scale(0.98);
+      }
+
+      .form__left-part__languages__inputs-group {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .native-lang {
+          color: rgba(20, 61, 102, 0.75);
+          font-weight: 600;
+        }
+
+        .inputs-group__input {
+          width: 55%;
+          display: flex;
+          justify-content: space-between;
+
+          .other-lang-name {
+            width: 75%;
+          }
+
+          .other-lang-level {
+            width: 16%;
+            text-align: center;
+            text-indent: 0;
+          }
+        }
+
+        label {
+          width: 40%;
+        }
+
+        input {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  .form__left-part__additional-info {
+    height: 50%;
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    .form__left-part__additional-info__inputs {
+      margin-top: 30px;
+      width: 80%;
+      height: 75%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      .form__left-part__additional-info__inputs-group {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .inputs-group__input {
+          width: 55%;
+        }
+
+        label {
+          width: 40%;
+        }
+
+        input {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  .additional-info__checkboxes-group {
+    height: 100%;
+    display: flex;
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
+
+    .checkboxes-column {
+      height: 70%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      .inputs-group__checkbox {
+        display: flex;
+        align-items: center;
+
+        label,
+        input {
+          cursor: pointer;
+          width: auto !important;
+          transition: 0.1s linear;
+        }
+
+        label:hover {
+          color: rgba(32, 85, 139, 0.7);
+          transition: 0.1s linear;
+        }
+
+        input {
+          margin-right: 12px;
+        }
+      }
+    }
+  }
+
+  .moved-checkboxes-group {
+    align-items: center !important;
+    height: 50%;
+    .checkboxes-column {
+      flex-direction: row;
+
+      label {
+        margin-top: 0.1px;
+      }
+
+      .inputs-group__checkbox:last-child {
+        margin-left: 35px;
+      }
+    }
+  }
+}
+
+.add-resume__form__right-part {
+  position: relative;
+  width: 60%;
+  height: 100%;
+  margin-left: 70px;
+
+  .form__left-part__position {
+    height: 25%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    .form__left-part__position__inputs {
+      margin-top: 30px;
+      width: 65%;
+      height: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      .form__left-part__position__inputs-group {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .inputs-group__input {
+          width: 80%;
+        }
+
+        label {
+          width: 40%;
+        }
+
+        input {
+          width: 100%;
+        }
+
+        .salary-input__group {
+          display: flex;
+          justify-content: space-between;
+
+          .salary-value {
+            width: 60%;
+          }
+
+          .salary-type {
+            width: 30%;
+          }
+        }
+      }
+    }
+  }
+
+  .form__left-part__experience {
+    height: 35%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    .form__left-part__experience__inputs {
+      margin-top: 20px;
+      width: 100%;
+      height: 65%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      .form__left-part__experience__inputs-group {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+
+        .add-job-place__btn {
+          width: 35%;
+          @extend %select-buttons;
+          height: 48px;
+          border: 2px solid #8da7b5;
+          transition: 0.2s linear;
+        }
+
+        .experience__about-me-textarea {
+          width: 60%;
+          height: 100px;
+          textarea {
+            width: 100%;
+            height: inherit;
+            max-height: 200px;
+            text-indent: 0;
+            font-size: 1.1em;
+            padding: 20px;
+            line-height: 18px;
+            transition: none;
+            resize: none;
+          }
+        }
+
+        .add-job-place__btn:hover {
+          transition: 0.2s linear;
+          border: 2px solid rgba(0, 0, 0, 0.7);
+          transform: scale(0.98);
+        }
+
+        label,
+        .job-title {
+          width: 30%;
+        }
+      }
+    }
+  }
+
+  .form__left-part__skills {
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    .form__left-part__skills__inputs {
+      margin-top: 30px;
+      width: 100%;
+      height: 80%;
+      display: flex;
+      flex-direction: column;
+      .form__left-part__skills__inputs-group {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+
+        .inputs-group__input {
+          width: 65%;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+
+          .check-border {
+            cursor: pointer;
+            border: 2px solid rgba(28, 170, 50, 0.2);
+            border-radius: 8px;
+            padding: 10px 11px;
+            transition: 0.1s linear;
+            .check-icon {
+              font-size: 1.3em;
+            }
+          }
+
+          .check-border:hover {
+            border: 2px solid rgba(255, 255, 255, 1);
+            background-color: rgba(28, 170, 50, 0.4);
+            transition: 0.1s linear;
+            .check-icon {
+              color: #fff;
+              transition: 0.1s linear;
+            }
+          }
+
+          .check-border:active {
+            transform: scale(0.9);
+            transition: 0.1s linear;
+          }
+        }
+
+        label {
+          width: 30%;
+        }
+
+        input {
+          width: 100%;
+          padding: 12px 0;
+          margin-right: 15px;
+        }
+      }
+
+      .skills-block {
+        width: 75%;
+        margin-top: 18px;
+        padding-right: 10px;
+        overflow-y: auto;
+        flex-wrap: wrap;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .skills-block__skill {
+          margin: 5px 0;
+          width: auto;
+          padding: 10px 50px 10px 10px;
+          border: 1px solid rgba(0, 0, 0, 0.2);
+          border-radius: 5px;
+          background-color: #cddfe9;
+        }
+      }
+    }
+  }
+}
+
+.save-resume__btn {
+  cursor: pointer;
+  position: absolute;
+  background-color: #5996b8;
+  color: #fff;
+  padding: 16px 30px;
+  border: none;
+  border-radius: 5px;
+  transition: 0.1s linear;
+  bottom: 0;
+  right: 0;
+}
+
+.save-resume__btn:hover {
+  background-color: #306988;
+  transition: 0.1s linear;
+}
+
+.save-resume__btn:active {
+  transform: scale(0.95);
+  transition: 0.1s linear;
+}

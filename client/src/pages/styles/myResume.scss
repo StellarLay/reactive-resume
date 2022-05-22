@@ -1,0 +1,132 @@
+@mixin boxShadow($property) {
+  -webkit-box-shadow: $property;
+  -moz-box-shadow: $property;
+  box-shadow: $property;
+}
+
+$img-params: no-repeat center top / cover;
+
+.resumes-section {
+  position: relative;
+  height: 100vh;
+  padding: 0 50px;
+  background: url(../../assets/img/resume-bg.jpg) $img-params;
+  background-color: rgba(0, 0, 0, 0.1);
+
+  h1 {
+    padding-top: 35px;
+    font-size: 1.45em;
+    color: rgba(0, 0, 0, 0.75);
+  }
+
+  .resume-list {
+    width: 40%;
+    height: 260px;
+    padding: 30px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 20px;
+    margin-top: 35px;
+    background-color: #fff;
+    @include boxShadow(0px 5px 8px 0px rgba(34, 60, 80, 0.2));
+    transition: 0.3s ease-out;
+
+    .resume-list__head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+
+      .resume-list__head-titles {
+        display: flex;
+        flex-direction: column;
+
+        .resume-list__title {
+          font-size: 1.2em;
+          font-weight: 600;
+          color: #116797;
+          transition: 0.1s linear;
+        }
+
+        .resume-list__title:hover {
+          cursor: pointer;
+          color: #1b465e;
+          transition: 0.1s linear;
+        }
+
+        .resume-list__last-update__text {
+          margin-top: 5px;
+          color: rgba(0, 0, 0, 0.5);
+        }
+      }
+
+      .dots-icon {
+        cursor: pointer;
+        font-size: 1.35em;
+      }
+    }
+
+    .resume-list__main {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .resume-list__views {
+        font-size: 1em;
+        font-weight: 600;
+        color: rgba(0, 0, 0, 0.6);
+
+        .resume-list__views-value {
+          color: #0783b9;
+        }
+      }
+
+      .resume-list__status {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        border-radius: 10px;
+        padding: 20px 0;
+        width: 220px;
+        color: #09984b;
+        font-weight: bold;
+        transition: 0.2s linear;
+      }
+
+      .resume-list__status:hover {
+        cursor: pointer;
+        background-color: rgba(246, 246, 246, 0.684);
+        transition: 0.2s linear;
+      }
+
+      .resume-list__status:active {
+        transform: scale(0.95);
+        transition: 0.2s linear;
+      }
+    }
+
+    .resume-list__options {
+      width: 80%;
+      display: flex;
+      justify-content: space-between;
+      span {
+        color: #003653b7;
+        font-weight: 600;
+        font-size: 0.9em;
+        transition: 0.2s linear;
+      }
+
+      span:hover {
+        cursor: pointer;
+        transition: 0.2s linear;
+        color: #000000b7;
+      }
+    }
+  }
+
+  .resume-list:hover {
+    transition: 0.3s ease-in;
+    transform: scale(1.02);
+  }
+}
