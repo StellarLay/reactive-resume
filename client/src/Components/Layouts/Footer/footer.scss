@@ -1,5 +1,5 @@
 .footer {
-  height: 120px;
+  height: 100px;
   padding: 0 50px;
   display: flex;
   justify-content: space-between;
@@ -9,7 +9,7 @@
   .footer__col-2,
   .footer__col-3,
   .footer__col-4 {
-    height: 42%;
+    height: 50%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;

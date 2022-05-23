@@ -1,13 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../../pages/styles/createResume.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
+import SkillsBlock from './blocks/SkillsBlock';
+import AddJob from '../../utils/Modals/AddJob';
+import { IModalProps } from '../../config/types';
 
 const CreateResume = () => {
+  const [isAddJob, setIsAddJob] = useState(false);
+
+  const addJobClick = () => {
+    setIsAddJob(isAddJob ? false : true);
+  };
+
+  const addResumeFormClick = (e: any) => {
+    e.preventDefault();
+  };
+
   return (
     <div className='add-resume'>
       <h1>Создание резюме</h1>
-      <form className='add-resume__form'>
+      <form
+        className='add-resume__form'
+        onSubmit={(e) => addResumeFormClick(e)}
+      >
         <div className='add-resume__form__left-part'>
           <div className='form__left-part__contacts'>
             <span className='add-resume__form-subTitle'>Контактные данные</span>
@@ -188,7 +204,10 @@ const CreateResume = () => {
             <div className='form__left-part__experience__inputs'>
               <div className='form__left-part__experience__inputs-group'>
                 <span className='job-title'>Места работы</span>
-                <button className='add-job-place__btn'>
+                <button
+                  className='add-job-place__btn'
+                  onClick={() => addJobClick()}
+                >
                   Добавить место работы
                 </button>
               </div>
@@ -215,17 +234,15 @@ const CreateResume = () => {
                   </div>
                 </div>
               </div>
-              <div className='skills-block'>
-                <div className='skills-block__skill'>React</div>
-                <div className='skills-block__skill'>Javascript</div>
-                <div className='skills-block__skill'>Typescript</div>
-                <div className='skills-block__skill'>Docker</div>
-              </div>
+              <SkillsBlock />
             </div>
           </div>
-          <button className='save-resume__btn'>Сохранить и опубликовать</button>
+          <button type='submit' className='primary-btn save-resume__btn'>
+            Сохранить и опубликовать
+          </button>
         </div>
       </form>
+      {isAddJob && <AddJob isOpen={setIsAddJob} />}
     </div>
   );
 };

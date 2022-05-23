@@ -511,6 +511,7 @@ $img-params: no-repeat center top / cover;
         .experience__about-me-textarea {
           width: 60%;
           height: 100px;
+
           textarea {
             width: 100%;
             height: inherit;
@@ -609,19 +610,38 @@ $img-params: no-repeat center top / cover;
         align-items: center;
         justify-content: space-between;
         .skills-block__skill {
+          position: relative;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
           margin: 5px 0;
           width: auto;
           padding: 10px 50px 10px 10px;
           border: 1px solid rgba(0, 0, 0, 0.2);
           border-radius: 5px;
           background-color: #cddfe9;
+
+          .trash-icon {
+            cursor: pointer;
+            position: absolute;
+            top: 49%;
+            right: 5px;
+            transform: translate(-50%, -50%);
+            color: rgb(71, 85, 86);
+            transition: 0.1s linear;
+          }
+
+          .trash-icon:hover {
+            color: rgb(192, 37, 37);
+            transition: 0.1s linear;
+          }
         }
       }
     }
   }
 }
 
-.save-resume__btn {
+.primary-btn {
   cursor: pointer;
   position: absolute;
   background-color: #5996b8;
@@ -634,12 +654,12 @@ $img-params: no-repeat center top / cover;
   right: 0;
 }
 
-.save-resume__btn:hover {
+.primary-btn:hover {
   background-color: #306988;
   transition: 0.1s linear;
 }
 
-.save-resume__btn:active {
+.primary-btn:active {
   transform: scale(0.95);
   transition: 0.1s linear;
 }
