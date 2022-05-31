@@ -34,7 +34,7 @@ const EditPesonal = (props: IModalProps) => {
     <Backdrop>
       <motion.div
         onClick={(e) => e.stopPropagation()}
-        className='edit-pesonal__form'
+        className='edit-pesonal__form modal'
         variants={dropIn}
         initial='hidden'
         animate='visible'

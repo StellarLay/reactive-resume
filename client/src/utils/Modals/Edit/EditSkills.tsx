@@ -35,7 +35,7 @@ const EditSkills = (props: IModalProps) => {
     <Backdrop>
       <motion.div
         onClick={(e) => e.stopPropagation()}
-        className='form__left-part__skills edit-modal__skills'
+        className='form__left-part__skills edit-modal__skills modal'
         variants={dropIn}
         initial='hidden'
         animate='visible'

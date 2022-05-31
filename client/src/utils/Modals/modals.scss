@@ -4,21 +4,23 @@
   box-shadow: $property;
 }
 
-input:not(input[type='checkbox']):not(input[type='radio']) {
-  width: 55%;
-  padding: 8px 0;
-  border-radius: 5px;
-  text-indent: 8px;
-  border: 2px solid rgba(0, 0, 0, 0.2);
-  font-size: 1em;
-  transition: 0.2s linear;
-  @include boxShadow(0px 1px 8px 0px #1091db62);
-}
+.modal {
+  input:not(input[type='checkbox']):not(input[type='radio']) {
+    width: 55%;
+    padding: 8px 0;
+    border-radius: 5px;
+    text-indent: 8px;
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    font-size: 1em;
+    transition: 0.2s linear;
+    @include boxShadow(0px 1px 8px 0px #1091db62);
+  }
 
-input:focus:not(input[type='checkbox']):not(input[type='radio']) {
-  border: 2px solid rgba(19, 64, 110, 0.7);
-  box-shadow: 0 0 12px -2px rgba(138, 27, 111, 0.3);
-  transition: 0.2s linear;
+  input:focus:not(input[type='checkbox']):not(input[type='radio']) {
+    border: 2px solid rgba(19, 64, 110, 0.7);
+    box-shadow: 0 0 12px -2px rgba(138, 27, 111, 0.3);
+    transition: 0.2s linear;
+  }
 }
 
 .primary-btn {
@@ -320,7 +322,7 @@ input:focus:not(input[type='checkbox']):not(input[type='radio']) {
 
 /* Skills Edit */
 .edit-modal__skills {
-  width: 80%;
+  width: 70%;
   height: auto;
   position: absolute;
   z-index: 11;
@@ -345,10 +347,11 @@ input:focus:not(input[type='checkbox']):not(input[type='radio']) {
       justify-content: flex-start;
 
       .inputs-group__input {
-        width: 70%;
+        width: 100%;
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        justify-content: flex-start;
+        margin-left: 20px;
 
         .check-border {
           cursor: pointer;
@@ -382,8 +385,8 @@ input:focus:not(input[type='checkbox']):not(input[type='radio']) {
       }
 
       input {
-        width: 100%;
-        padding: 12px 0;
+        width: 100% !important;
+        padding: 12px 0 !important;
         margin-right: 15px;
       }
     }
