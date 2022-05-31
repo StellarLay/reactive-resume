@@ -1,4 +1,5 @@
 import React from 'react';
+import '../modals.scss';
 import SkillsBlock from '../../../pages/CreateResume/blocks/SkillsBlock';
 import Backdrop from '../Backdrop';
 import { IModalProps } from '../../../config/types';
