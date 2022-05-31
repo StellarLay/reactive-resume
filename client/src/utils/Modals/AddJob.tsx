@@ -32,7 +32,6 @@ const AddJob = (props: any) => {
 
   return (
     <Container className='add-job__block'>
-      <div className='dark-bg'></div>
       <div className='add-job__block-form'>
         <span className='title'>Опыт работы</span>
         <div className='add-job__content'>

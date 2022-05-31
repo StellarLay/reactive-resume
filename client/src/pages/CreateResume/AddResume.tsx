@@ -1,24 +1,27 @@
 import React, { useState } from 'react';
 import '../../pages/styles/createResume.scss';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheck } from '@fortawesome/free-solid-svg-icons';
+
+// Import Components
 import SkillsBlock from './blocks/SkillsBlock';
 import AddJob from '../../utils/Modals/AddJob';
-import { IModalProps } from '../../config/types';
+
+// Import libraries
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCheck } from '@fortawesome/free-solid-svg-icons';
+import { motion } from 'framer-motion';
 
 const CreateResume = () => {
-  const [isAddJob, setIsAddJob] = useState(false);
-
-  const addJobClick = () => {
-    setIsAddJob(isAddJob ? false : true);
-  };
-
   const addResumeFormClick = (e: any) => {
     e.preventDefault();
   };
 
   return (
-    <div className='add-resume'>
+    <motion.div
+      className='add-resume'
+      initial={{ opacity: 0.5 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
       <h1>Создание резюме</h1>
       <form
         className='add-resume__form'
@@ -46,10 +49,34 @@ const CreateResume = () => {
                   <input type='phone' name='phone' />
                 </div>
               </div>
-              <div className='form__left-part__contacts__inputs-group'>
+              <div className='form__left-part__contacts__inputs-group city-input'>
                 <label htmlFor='city'>Город проживания</label>
                 <div className='inputs-group__input'>
                   <input type='text' name='city' className='select-city' />
+                </div>
+              </div>
+              <div className='form__left-part__contacts__inputs-group social-input'>
+                <label htmlFor='telegram' className='telegram-label'>
+                  Telegram
+                </label>
+                <div className='inputs-group__input'>
+                  <input
+                    type='text'
+                    name='telegram'
+                    placeholder='необязательно'
+                  />
+                </div>
+              </div>
+              <div className='form__left-part__contacts__inputs-group social-input'>
+                <label htmlFor='whatsapp' className='whatsapp-label'>
+                  WhatsApp
+                </label>
+                <div className='inputs-group__input'>
+                  <input
+                    type='text'
+                    name='whatsapp'
+                    placeholder='необязательно'
+                  />
                 </div>
               </div>
             </div>
@@ -94,10 +121,37 @@ const CreateResume = () => {
           <div className='form__left-part__education'>
             <span className='add-resume__form-subTitle'>Образование</span>
             <div className='form__left-part__education__inputs'>
-              <div className='form__left-part__education__inputs-group'>
+              <div className='form__left-part__education__inputs-group inputs-group__title'>
                 <label htmlFor='level-education'>Уровень</label>
                 <div className='inputs-group__input'>
                   <input type='text' name='education-level__select' />
+                </div>
+              </div>
+              <div className='form__left-part__education__inputs-group'>
+                <label htmlFor='college-education'>Учебное заведение</label>
+                <div className='inputs-group__input'>
+                  <input type='text' name='education-college__select' />
+                </div>
+              </div>
+              <div className='form__left-part__education__inputs-group'>
+                <label htmlFor='facultet-education'>Факультет</label>
+                <div className='inputs-group__input'>
+                  <input type='text' name='education-facultet__select' />
+                </div>
+              </div>
+              <div className='form__left-part__education__inputs-group'>
+                <label htmlFor='speciality-education'>Специальность</label>
+                <div className='inputs-group__input'>
+                  <input type='text' name='education-speciality__select' />
+                </div>
+              </div>
+              <div className='form__left-part__education__inputs-group'>
+                <label htmlFor='endYear-education'>Год окончания</label>
+                <div className='inputs-group__input'>
+                  <input type='text' name='education-endYear__select' />
+                  <span className='endYear-prompt'>
+                    Если учитесь, то по настоящее время
+                  </span>
                 </div>
               </div>
             </div>
@@ -204,10 +258,7 @@ const CreateResume = () => {
             <div className='form__left-part__experience__inputs'>
               <div className='form__left-part__experience__inputs-group'>
                 <span className='job-title'>Места работы</span>
-                <button
-                  className='add-job-place__btn'
-                  onClick={() => addJobClick()}
-                >
+                <button className='add-job-place__btn'>
                   Добавить место работы
                 </button>
               </div>
@@ -242,8 +293,7 @@ const CreateResume = () => {
           </button>
         </div>
       </form>
-      {isAddJob && <AddJob isOpen={setIsAddJob} />}
-    </div>
+    </motion.div>
   );
 };
 

@@ -2,13 +2,16 @@ import React from 'react';
 import '../styles/myResume.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEllipsisVertical } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 
 const ResumeList = () => {
   return (
     <div className='resume-list'>
       <div className='resume-list__head'>
         <div className='resume-list__head-titles'>
-          <span className='resume-list__title'>React разработчик</span>
+          <Link to='/resume'>
+            <span className='resume-list__title'>React разработчик</span>
+          </Link>
           <span className='resume-list__last-update__text'>
             Последнее обновление: 21.04.2022 в 17:45
           </span>

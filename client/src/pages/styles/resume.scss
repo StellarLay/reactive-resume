@@ -1,0 +1,466 @@
+@mixin boxShadow($property) {
+  -webkit-box-shadow: $property;
+  -moz-box-shadow: $property;
+  box-shadow: $property;
+}
+
+/* Переменные */
+$img-params: no-repeat center top / cover;
+
+hr {
+  width: 90%;
+  bottom: -40px;
+  position: absolute;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Стили на родителе */
+.profile-section {
+  height: 100vh;
+
+  .profile__main-block {
+    padding: 0 50px;
+    background: url(../../assets/img/resume-bg.jpg) $img-params;
+    background-color: rgba(0, 0, 0, 0.1);
+    padding-bottom: 35px;
+
+    .profile__main-block__resume {
+      background-color: #fff;
+      height: auto;
+      border-radius: 8px;
+      padding-bottom: 50px;
+    }
+  }
+}
+
+.resume__title-block {
+  display: flex;
+  align-items: center;
+
+  .profile-block__title {
+    font-size: 1.2em;
+    color: rgba(0, 0, 0, 0.6);
+  }
+
+  .edit-pen__btn {
+    margin-left: 12px;
+  }
+
+  .edit-pen-icon {
+    cursor: pointer;
+    font-size: 0.9em;
+  }
+
+  .edit-pen-icon:hover {
+    color: rgba(19, 83, 116, 0.8);
+  }
+}
+
+/* TopHeader Styles */
+.profile-section__top-header {
+  height: 12vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .resume-list__btn {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    padding: 15px 0;
+    border-radius: 8px;
+    border: none;
+    background-color: #1b506d;
+    color: #fff;
+    transition: 0.1s linear;
+
+    .file-icon {
+      font-size: 1.4em;
+      margin-right: 10px;
+    }
+  }
+
+  .resume-list__btn:hover {
+    background-color: #2e6d8f;
+    transition: 0.1s linear;
+  }
+
+  .last-update__text {
+    color: #052435b8;
+  }
+}
+
+/* MainBlock styles */
+.profile__main-block__resume {
+  display: flex;
+  justify-content: space-between;
+  padding: 25px;
+
+  .profile__main-block__resume-left {
+    width: 70%;
+
+    .resume__personal-info {
+      .resume__personal-info__avatar {
+        width: 150px;
+        height: 220px;
+        border-radius: 10px;
+
+        img {
+          width: inherit;
+          height: inherit;
+        }
+      }
+    }
+  }
+  .profile__main-block__resume-right {
+    width: 30%;
+  }
+}
+
+/* Personal Info styles */
+.resume__personal-info {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 220px;
+  .resume__personal-info__fields {
+    height: 95%;
+    margin-left: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    .personal-info__fields__person-info {
+      display: flex;
+      flex-direction: column;
+
+      .person-info__fio {
+        font-size: 1.2em;
+        font-weight: bold;
+      }
+
+      .person-info__birthday {
+        margin-top: 7px;
+        font-weight: 600;
+        color: rgba(0, 0, 0, 0.45);
+      }
+
+      .item__general__left__location-block {
+        margin-top: 15px;
+        display: flex;
+        align-items: center;
+
+        .location-icon {
+          font-size: 1.1em;
+          color: rgba(31, 114, 178, 0.738);
+        }
+
+        .location-block__value {
+          font-weight: bold;
+          color: rgba(0, 0, 0, 0.65);
+          margin-left: 8px;
+        }
+      }
+    }
+
+    .personal-info__fields__contacts {
+      height: 42%;
+      margin-top: 35px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      .contacts__social {
+        width: 38%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .contacts__social-title {
+          font-weight: 600;
+        }
+
+        .contacts__social-block {
+          width: 32%;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          .social-icon {
+            font-size: 1.4em;
+          }
+
+          svg {
+            cursor: pointer;
+          }
+
+          .telegram-icon {
+            color: #36779b;
+          }
+
+          .whats-icon {
+            color: #189c03;
+          }
+        }
+      }
+
+      .contacts__phone,
+      .contacts__email {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+
+        .phone-icon,
+        .email-icon {
+          font-size: 1.4em;
+        }
+
+        span {
+          margin-left: 20px;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+
+  .edit-pen-icon {
+    cursor: pointer;
+    position: absolute;
+    right: 35%;
+    top: 9px;
+    font-size: 0.9em;
+  }
+
+  .edit-pen-icon:hover {
+    color: rgba(19, 83, 116, 0.8);
+  }
+}
+
+/* Main info styles */
+.resume__main-info {
+  margin-top: 80px;
+  display: flex;
+  flex-direction: column;
+
+  .resume__main-info__titleAndSalary-block {
+    display: flex;
+    flex-direction: column;
+
+    .resume__main-info__title {
+      font-size: 1.3em;
+      color: rgba(0, 0, 0, 0.7);
+      font-weight: bold;
+    }
+
+    .resume__main-info__salary {
+      margin-top: 3px;
+      font-size: 1.2em;
+      font-weight: bold;
+      color: #0a5c80cf;
+    }
+  }
+
+  .resume__main-info__other-block {
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+
+    span {
+      font-size: 0.95em;
+      color: rgba(0, 0, 0, 0.65);
+    }
+
+    .other-block__title {
+      font-weight: bold;
+    }
+
+    .other-block__job-schedule {
+      margin-top: 5px;
+    }
+  }
+}
+
+/* Skills Styles */
+.resume__skills-info {
+  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+
+  .skills-block {
+    width: 65%;
+  }
+}
+
+/* Experience Styles */
+.resume__experience-info {
+  margin-top: 60px;
+
+  .resume__experience-info__list {
+    margin-top: 18px;
+    display: flex;
+    align-items: center;
+
+    .resume__experience-info__item {
+      padding: 20px 20px;
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      border-radius: 8px;
+      @include boxShadow(0px 2px 7px 2px rgba(13, 60, 96, 0.2));
+      transition: 0.1s linear;
+
+      .experience-info__item__general {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .item__general__left {
+          display: flex;
+          flex-direction: column;
+
+          .item__general__left__title-block {
+            display: flex;
+            flex-direction: column;
+
+            .experience-info__item-title {
+              font-size: 1.1em;
+              color: #267ea3;
+              font-weight: bold;
+            }
+
+            .experience-info__item-siteurl {
+              margin-top: 3px;
+              font-weight: bold;
+              color: rgba(0, 0, 0, 0.6);
+            }
+          }
+
+          .item__general__left__location-block {
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+
+            .location-icon {
+              font-size: 1.1em;
+              color: rgba(0, 0, 0, 0.65);
+            }
+
+            .location-block__value {
+              font-weight: bold;
+              color: rgba(0, 0, 0, 0.65);
+              margin-left: 8px;
+            }
+          }
+        }
+
+        .item__general__right {
+          .from-to__time-job {
+            font-weight: bold;
+          }
+        }
+      }
+
+      .experience-info__item__description-block {
+        margin-top: 25px;
+        display: flex;
+        flex-direction: column;
+
+        .item__description-block__title {
+          font-weight: bold;
+        }
+
+        .item__description-block__text {
+          overflow-y: auto;
+          word-wrap: break-word;
+          width: 100%;
+          max-height: 100px;
+          margin-top: 8px;
+        }
+      }
+    }
+
+    .resume__experience-info__item:hover {
+      @include boxShadow(0px 2px 7px 2px rgba(13, 60, 96, 0.4));
+      transition: 0.1s linear;
+    }
+  }
+}
+
+/* About me Styles */
+.resume__about-me-info {
+  width: 70%;
+  margin-top: 60px;
+
+  .resume__about-me__text {
+    margin-top: 18px;
+    white-space: pre-wrap;
+    line-height: 25px;
+    color: rgba(0, 0, 0, 0.85);
+  }
+}
+
+/* Education Styles */
+.resume__education-info {
+  margin-top: 40px;
+
+  .resume__education-info__content {
+    margin-top: 18px;
+    font-size: 1.1em;
+    display: flex;
+    flex-direction: column;
+
+    .resume__education-info__title {
+      color: rgba(0, 0, 0, 0.6);
+    }
+
+    .resume__education-info__list {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+
+      .resume__education-info__item {
+        width: 60%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px 25px;
+        border-left: 1px solid rgba(0, 0, 0, 0.2);
+
+        .resume__education-info__item__left {
+          display: flex;
+          flex-direction: column;
+
+          .resume__education-info__item__title {
+            font-weight: bold;
+          }
+
+          .resume__education-info__item__subtitle {
+            margin-top: 5px;
+          }
+        }
+
+        .resume__education-info__item__right {
+          margin-left: 60px;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}
+
+/* Languages Styles */
+.resume__languages-info {
+  margin-top: 40px;
+
+  .resume__languages-info__list {
+    margin-top: 12px;
+    display: flex;
+    flex-direction: column;
+
+    span {
+      margin-top: 6px;
+      font-weight: bold;
+    }
+  }
+}

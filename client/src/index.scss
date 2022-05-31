@@ -103,7 +103,8 @@ body {
   transition: 0.3s linear;
 }
 
-.create-resume__btn {
+.create-resume__btn,
+.login-resume__btn {
   cursor: pointer;
   width: 180px;
   padding: 12px 0;
@@ -115,10 +116,22 @@ body {
   transition: 0.2s ease-in-out;
 }
 
-.create-resume__btn:hover {
+.login-resume__btn {
+  width: 120px;
+  background-color: transparent;
+  color: rgba(0, 0, 0, 0.75);
+}
+
+.create-resume__btn:hover,
+.login-resume__btn:hover {
   transform: scale(1.02);
   background-color: #2c698a;
   transition: 0.2s ease-in-out;
+}
+
+.login-resume__btn:hover {
+  color: #fff;
+  background-color: #0a354d;
 }
 
 .create-resume__btn:active {
@@ -138,4 +151,42 @@ body {
 .user-icon:hover {
   color: #0f5880;
   transition: 0.2s linear;
+}
+
+.skills-block {
+  width: 75%;
+  margin-top: 18px;
+  padding-right: 10px;
+  overflow-y: auto;
+  flex-wrap: wrap;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  .skills-block__skill {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 5px 0;
+    width: auto;
+    padding: 10px 50px 10px 10px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    background-color: #cddfe9;
+
+    .trash-icon {
+      cursor: pointer;
+      position: absolute;
+      top: 49%;
+      right: 5px;
+      transform: translate(-50%, -50%);
+      color: rgb(71, 85, 86);
+      transition: 0.1s linear;
+    }
+
+    .trash-icon:hover {
+      color: rgb(192, 37, 37);
+      transition: 0.1s linear;
+    }
+  }
 }

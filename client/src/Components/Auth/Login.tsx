@@ -1,14 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './auth.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import HelloScreen from '../Layouts/HelloScreen/HelloScreen';
 
+import { motion } from 'framer-motion';
+
 const Login = () => {
+  const [isLogin, setIsLogin] = useState(true);
+
   return (
     <div className='login-block'>
-      <div className='login-block__left'>
+      <motion.div
+        className='login-block__left'
+        initial={{ opacity: 0.5 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+      >
         <div className='login-block__left-blur'>
           <div className='login-block__left-inner'>
             <h2>Добро пожаловать!</h2>
@@ -48,7 +57,7 @@ const Login = () => {
             </span>
           </div>
         </div>
-      </div>
+      </motion.div>
       <HelloScreen />
     </div>
   );
